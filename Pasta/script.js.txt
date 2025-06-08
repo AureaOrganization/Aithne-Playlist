@@ -1,0 +1,62 @@
+const playlistContainer = document.getElementById("playlist");
+
+let tracks = [
+  {
+    title: "Blood (Tema de aparição)",
+    url: "https://www.youtube.com/watch?v=9XAQcbe1d-w",
+  },
+  {
+    title: "Chamas Antigas(Tema de Luta)",
+    url: "https://www.youtube.com/watch?v=Pu6bAIKBLmM",
+  },
+ {
+    title: "Fractum Memorias (Tema de Memórias)",
+    url: "https://www.youtube.com/watch?v=WeLJVOXwjPc",
+  },
+ {
+    title: "Messing around (Tema de Standby)",
+    url: "https://www.dropbox.com/scl/fo/pagm51oa1h7a1ti5sseva/AIiI-TfnsrXv1cHElpu0tqc?dl=0&e=1&preview=%E3%82%B8%E3%82%A7%E3%83%8B_%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%AA%E3%83%B3%E3%82%B0%E6%B8%88_inst+.wav&rlkey=4xnpcz5wihio11a41l75qpcff&st=hfyyttdg",
+  },
+{
+    title: "Shut it. (Tema de perda de controle)",
+    url: "https://www.youtube.com/watch?v=3qu1qcnDnJ4",
+  },
+];
+
+function renderPlaylist() {
+  playlistContainer.innerHTML = "";
+  tracks.forEach((track, index) => {
+    const trackElement = document.createElement("div");
+    trackElement.className = "track";
+
+    trackElement.innerHTML = `
+      <div class="track-title">${track.title}</div>
+      <audio controls src="${track.url}"></audio>
+      <button class="remove-btn" onclick="removeTrack(${index})">Remover</button>
+    `;
+
+    playlistContainer.appendChild(trackElement);
+  });
+}
+
+function addTrack() {
+  const titleInput = document.getElementById("title");
+  const urlInput = document.getElementById("url");
+
+  const title = titleInput.value.trim();
+  const url = urlInput.value.trim();
+
+  if (title && url) {
+    tracks.push({ title, url });
+    renderPlaylist();
+    titleInput.value = "";
+    urlInput.value = "";
+  }
+}
+
+function removeTrack(index) {
+  tracks.splice(index, 1);
+  renderPlaylist();
+}
+
+renderPlaylist();

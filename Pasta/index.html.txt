@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>What it takes to kill?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Aithne Playlist</h1>
+
+    <div id="playlist" class="playlist"></div>
+
+    <div class="add-track">
+      <h2>Adicionar Faixa</h2>
+      <input type="text" id="title" placeholder="Título da música" />
+      <input type="text" id="url" placeholder="URL do áudio" />
+      <button onclick="addTrack()">Adicionar</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
